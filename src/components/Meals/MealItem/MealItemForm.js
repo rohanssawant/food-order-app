@@ -7,7 +7,7 @@ export default function MealItemForm(props) {
       <Input
         label="Amount"
         input={{
-          id: "amt" + props.id,
+          id: "amt_" + props.id,
           type: "number",
           min: "1",
           max: "5",
