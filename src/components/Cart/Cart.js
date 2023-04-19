@@ -1,4 +1,5 @@
 import styles from "./Cart.module.css";
+import Modal from "./Modal";
 
 export default function Cart(props) {
   const dumI = [
@@ -10,7 +11,7 @@ export default function Cart(props) {
     },
   ];
   const cartItems = (
-    <ul>
+    <ul className={styles["cart-items"]}>
       {dumI.map((i) => (
         <li>{i.name}</li>
       ))}
@@ -18,9 +19,16 @@ export default function Cart(props) {
   );
 
   return (
-    <div>
-      <div></div>
-      <div></div>
-    </div>
+    <Modal>
+      {cartItems}
+      <div className={styles.total}>
+        <span>Total Amount</span>
+        <span>35.56</span>
+      </div>
+      <div className={styles.actions}>
+        <button className={styles["button--alt"]}>Close</button>
+        <button className={styles.button}>Order</button>
+      </div>
+    </Modal>
   );
 }
