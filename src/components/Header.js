@@ -6,8 +6,7 @@ export default function Header(props) {
     <>
       <header className={styles.header}>
         <h1>Meals</h1>
-        {/* <button>Cart</button> */}
-        <HeaderCartButton />
+        <HeaderCartButton onClick={props.onShowCart} />
       </header>
 
       <div className={styles["main-image"]}>
