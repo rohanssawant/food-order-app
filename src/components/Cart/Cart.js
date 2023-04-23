@@ -1,19 +1,15 @@
+import { useContext } from "react";
+import cartContext from "../../store/cart-context";
 import styles from "./Cart.module.css";
 import Modal from "./Modal";
 
 export default function Cart(props) {
-  const dumI = [
-    {
-      id: "m1",
-      name: "Sushi",
-      description: "Finest fish and veggies",
-      price: 22.99,
-    },
-  ];
-
+  const CartContext = useContext(cartContext);
+  console.log(CartContext.totalAmount);
+  const totalAmount = `$${CartContext.totalAmount.toFixed(2)}`;
   const cartItems = (
     <ul className={styles["cart-items"]}>
-      {dumI.map((i) => (
+      {CartContext.items.map((i) => (
         <li>{i.name}</li>
       ))}
     </ul>
@@ -24,7 +20,7 @@ export default function Cart(props) {
       {cartItems}
       <div className={styles.total}>
         <span>Total Amount</span>
-        <span>35.56</span>
+        <span>{totalAmount}</span>
       </div>
       <div className={styles.actions}>
         <button className={styles["button--alt"]} onClick={props.onHideCart}>
