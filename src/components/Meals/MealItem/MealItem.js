@@ -4,11 +4,11 @@ import styles from "./MealItem.module.css";
 import MealItemForm from "./MealItemForm";
 
 export default function MealItem(props) {
-  const CartContent = useContext(cartContext);
+  const CartContext = useContext(cartContext);
   const price = `$${props.price}`;
   const addItemToCartHandler = (amount) => {
     console.log(amount);
-    CartContent.addItem({
+    CartContext.addItem({
       id: props.id,
       name: props.name,
       amount,

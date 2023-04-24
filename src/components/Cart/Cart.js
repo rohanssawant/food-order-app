@@ -5,7 +5,7 @@ import Modal from "./Modal";
 
 export default function Cart(props) {
   const CartContext = useContext(cartContext);
-  console.log(CartContext.totalAmount);
+  console.log(CartContext);
   const totalAmount = `$${CartContext.totalAmount.toFixed(2)}`;
   const cartItems = (
     <ul className={styles["cart-items"]}>

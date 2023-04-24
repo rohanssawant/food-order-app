@@ -6,12 +6,13 @@ export default function CartReducer(currentState, action) {
     case ACTIONS.ADD:
       const updatedItems = currentState.items.concat(action.item);
       const updatedTotalAmount =
-        currentState.totalAmount + action.item.price * action.item.amount;
+        (currentState.totalAmount || 0) +
+        action.item.price * action.item.amount;
       console.log(updatedTotalAmount);
       console.log(typeof currentState.totalAmount);
       console.log(typeof action.item.price);
       console.log(typeof action.item.amount);
-      return { items: updatedItems, amount: updatedTotalAmount };
+      return { items: updatedItems, totalAmount: updatedTotalAmount };
 
     default:
       return currentState;
