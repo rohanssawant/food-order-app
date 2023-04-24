@@ -12,7 +12,9 @@ export default function CartProvider(props) {
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: ACTIONS.ADD, item });
   };
-  const removeItemFromCartHandler = (id) => {};
+  const removeItemFromCartHandler = (id) => {
+    dispatchCartAction({ type: ACTIONS.REMOVE, id });
+  };
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,

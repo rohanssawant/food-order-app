@@ -9,8 +9,13 @@ export default function Cart(props) {
   console.log(CartContext);
   const totalAmount = `$${CartContext.totalAmount.toFixed(2)}`;
   const hasItems = CartContext.items.length > 0;
-  const cartItemRemoveHandler = (id) => {};
-  const cartItemAddHandler = (item) => {};
+  const cartItemRemoveHandler = (id) => {
+    CartContext.removeItem(id);
+  };
+  const cartItemAddHandler = (item) => {
+    console.log(item);
+    CartContext.addItem({ ...item, amount: 1 });
+  };
   const cartItems = (
     <ul className={styles["cart-items"]}>
       {CartContext.items.map((i) => (
